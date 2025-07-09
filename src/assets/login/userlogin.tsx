@@ -11,7 +11,7 @@ function UserLogin() {
     e.preventDefault();
     
     if (username === "user" && password === "12345") {
-      navigate("/user-dashboard");
+      navigate("/userdashboard");
     } else {
       setError("Invalid user credentials");
     }

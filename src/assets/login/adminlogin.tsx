@@ -11,7 +11,7 @@ function AdminLogin() {
     e.preventDefault();
     
     if (username === "admin" && password === "12345") {
-      navigate("/admin-dashboard");
+      navigate("/admindashboard");
     } else {
       setError("Invalid admin credentials");
     }

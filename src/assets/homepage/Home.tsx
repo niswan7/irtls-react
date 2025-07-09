@@ -3,7 +3,7 @@ import highway from "./highway.jpg";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 
-function Home() {
+function Home() { 
   // Create refs for scrollable sections
   const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
