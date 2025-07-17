@@ -44,7 +44,7 @@ function Home() {
   return (
     <>
       {/* Header Section */}
-      <header className="bg-slate-800 shadow-md sticky top-0 z-50">
+            <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
         <div className="w-full h-20 flex items-center justify-between px-4 md:px-10">
           <div className="flex items-center gap-2 md:gap-4">
             <div className="w-12 h-12 md:w-16 md:h-16">
@@ -164,7 +164,7 @@ function Home() {
       {/* About Section */}
       <section 
         ref={aboutRef} 
-        className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white"
+        className="py-16 bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg   text-white"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">About Our System</h2>

@@ -18,7 +18,7 @@ function UserLogin() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-indigo-700">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">User Login</h2>
         

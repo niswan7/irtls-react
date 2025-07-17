@@ -9,14 +9,15 @@ function LoginSelection() {
         <div className="space-y-6">
           <Link 
             to="/userlogin"
-            className="block w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition duration-300"
+            className="block w-full bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50 text-white py-3 px-4 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition duration-300"
           >
+
             Login as User
           </Link>
           
           <Link 
             to="/adminlogin"
-            className="block w-full bg-green-600 text-white py-3 px-4 rounded-lg font-semibold shadow-md hover:bg-green-700 transition duration-300"
+            className="block w-full bg-green-600 to text-white py-3 px-4 rounded-lg font-semibold shadow-md hover:bg-green-700 transition duration-300"
           >
             Login as Admin
           </Link>
