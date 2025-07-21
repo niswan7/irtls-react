@@ -4,7 +4,7 @@ function Admindashboard(){
 
 
     return(
-        <header className="bg-slate-800 shadow-md sticky top-0 z-50">
+        <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
             <div className="w-full h-20 flex items-center justify-between px-4 md:px-10">
                 <h1 className="text-white text-xl md:text-3xl font-bold">Welcome Admin</h1>
                 <div>
