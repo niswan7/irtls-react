@@ -5,6 +5,7 @@ import Adminlogin from "./assets/login/adminlogin";
 import LoginSelection from "./assets/login/LoginSelection";
 import Userdashboard from "./assets/dashboard/userdashboard";
 import Admindashboard  from "./assets/dashboard/admindashboard";
+import Insurancedashboard  from "./assets/dashboard/insurancedashboard";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="adminlogin" element={<Adminlogin/>}/>
       <Route path="/userdashboard" element={<Userdashboard/>}/>
       <Route path="admindashboard" element={<Admindashboard/>}/>
+      <Route path="insuracedashboard" element={<Insurancedashboard/>}/>
      </Routes>
   );
 }

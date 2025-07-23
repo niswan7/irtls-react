@@ -2,7 +2,7 @@ import React from 'react';
 import { Search, ClipboardList, PlusCircle, Repeat2 } from 'lucide-react'; 
 import {Link} from "react-router-dom"
 
-function Admindashboard() {
+function Insurancedashboard() {
     return (
         <div className="min-h-screen bg-gray-100 font-sans">
             <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
@@ -126,4 +126,4 @@ function Admindashboard() {
     );
 }
 
-export default Admindashboard;
+export default Insurancedashboard;
