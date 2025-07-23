@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search, ClipboardList, PlusCircle, Repeat2 } from 'lucide-react';
-import {Link} from "react-router-dom";
+import { Search, ClipboardList, PlusCircle, Repeat2 } from 'lucide-react'; 
+import {Link} from "react-router-dom"
 
 function Admindashboard() {
     return (
@@ -9,7 +9,7 @@ function Admindashboard() {
                 <div className="w-full h-20 flex items-center justify-between px-4 md:px-10">
                     <h1 className="text-white text-xl md:text-3xl font-bold">Welcome Admin</h1>
                     <div>
-                        <Link to="/"
+                        <Link to ="/"
                             onClick={() => console.log("Logout clicked from Admin Dashboard")} // Placeholder for logout action
                             className="text-white bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-2 md:px-5 md:py-2 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
@@ -19,12 +19,10 @@ function Admindashboard() {
                 </div>
             </header>
 
-            {/* Main Content */}
             <main className="container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold text-gray-800 mb-8 p-4 bg-white rounded-lg shadow-sm">Admin Panel</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {/* Search Vehicle Details Card */}
                     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-500">
                         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-4">
                             <h3 className="text-xl font-bold text-white flex items-center">

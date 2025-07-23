@@ -12,7 +12,11 @@ function AdminLogin() {
     
     if (username === "admin" && password === "12345") {
       navigate("/admindashboard");
-    } else {
+    } 
+    else if (username === "insurance" && password === "12345"){
+      navigate("/insurancedashboard");
+    }
+    else {
       setError("Invalid admin credentials");
     }
   };
