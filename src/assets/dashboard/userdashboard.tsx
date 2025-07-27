@@ -9,6 +9,7 @@ function Userdashboard() {
     };
 
     return (
+        <>
         <div className="min-h-screen bg-gray-100 font-sans">
             <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
                 <div className="w-full h-20 flex items-center justify-between px-4 md:px-10">
@@ -25,7 +26,7 @@ function Userdashboard() {
             </header>
 
             <main className="container mx-auto px-4 py-8">
-                <div className="mb-8 p-4 bg-white rounded-lg shadow-sm cursor-pointer" onClick={toggleCarDetails}>
+                <div className="mb-8 p-4 bg-white rounded-lg shadow-sm cursor-pointer border-l-4 border-green-500" onClick={toggleCarDetails}>
                     <h1 className="text-3xl font-bold text-gray-800">
                         VEHICLE : KL 11 CA 7277
                         <span className="ml-3 text-blue-500 text-sm">
@@ -455,8 +456,21 @@ function Userdashboard() {
                         </div>
                     </form>
                 </div>
+                <div className="mb-8 p-4 bg-white rounded-lg shadow-sm cursor-pointer flex justify-between border-l-4 border-red-600 " >
+                   <div >
+                    <h2 className="text-3xl font-bold text-gray-800">Register A Complaint/Violation </h2>
+                    </div>
+                    <div className="">
+                            <button className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg">
+                                <Link to="/filecomplaintdashboard">
+                                        Click Here
+                                </Link>
+                            </button>
+                        </div>
+                </div>
             </main>
         </div>
+    </>
     );
 }
 
