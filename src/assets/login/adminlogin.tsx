@@ -16,9 +16,15 @@ function AdminLogin() {
     else if (username === "insurance" && password === "12345"){
       navigate("/insurancedashboard");
     }
+  else if (username === "pollution" && password === "12345"){
+    navigate("/pollutiondashboard");
+  }
     else {
       setError("Invalid admin credentials");
     }
+  
+  
+  
   };
 
   return (

@@ -7,7 +7,7 @@ import Userdashboard from "./assets/dashboard/userdashboard";
 import Admindashboard  from "./assets/dashboard/admindashboard";
 import Insurancedashboard  from "./assets/dashboard/insurancedashboard";
 import Filecomplaintdashboard from "./assets/dashboard/filecomplaintdashboard";
-
+import Pollutiondashboard from "./assets/dashboard/pollutiondashboard";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <Route path="admindashboard" element={<Admindashboard/>}/>
       <Route path="/insuracedashboard" element={<Insurancedashboard/>}/>
       <Route path="/filecomplaintdashboard" element={<Filecomplaintdashboard/>}/>
-      
+      <Route path="/pollutiondashboard" element={<Pollutiondashboard/>}></Route>
      </Routes>
   );
 }
