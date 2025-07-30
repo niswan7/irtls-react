@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Userdashboard() {
-    const [showCarDetails, setShowCarDetails] = useState(true);
+    const [showCarDetails, setShowCarDetails] = useState(false);
     const [complaintlist,setcomplaintlist] = useState(false);
     
     const toggleCarDetails = () => {
@@ -36,7 +36,7 @@ function Userdashboard() {
             <main className="container mx-auto px-4 py-8">
                 <div className="mb-8 p-4 bg-white rounded-lg shadow-sm cursor-pointer border-l-4 border-green-500" onClick={toggleCarDetails}>
                     <h1 className="text-3xl font-bold text-gray-800">
-                        VEHICLE : KL 11 CA 7277
+                        VEHICLE : KL 11 CA 7777
                         <span className="ml-3 text-blue-500 text-sm">
                             {showCarDetails ? "(Click to Hide)" : "(Click to Show)"}
                         </span>
@@ -464,20 +464,27 @@ function Userdashboard() {
                         </div>
                     </form>
                 </div>
+        
                 <div className="mb-8 p-4 bg-white rounded-lg shadow-sm cursor-pointer flex justify-between border-l-4 border-red-600 " >
-                   <div >
+                   <div 
+                    // ref={complaintRef}
+                   >
+               
+                    
                     <h2 className="text-3xl font-bold text-gray-800">Register A Complaint/Violation </h2>
                     </div>
                     <div className="">
                             <button className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg"
-                             onClick={togglecomplaintlist} {() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-                                        Click Here
+                                onClick={() => {    togglecomplaintlist();
+                                    // scrollToSection(complaintRef)
+                                    // window.scrollTo({top : 100, behavior: "smooth" })
+                                }}>     Click Here
                             </button>
                         </div>
                     </div>
                 <div>
                     {complaintlist && (
-                           <div className="bg-white rounded-xl shadow-lg p-6 mb-8 border-l-4 border-yellow-500">
+                        <div className="bg-white rounded-xl shadow-lg p-6 mb-8 border-l-4 border-yellow-500">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                         <svg className="w-6 h-6 mr-3 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12A9 9 0 113 12a9 9 0 0118 0z"></path>
@@ -503,49 +510,46 @@ function Userdashboard() {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <label htmlFor="variant" className="text-gray-700 font-medium mb-2">Variant</label>
+                            <label htmlFor="variant" className="text-gray-700 font-medium mb-2">Violation</label>
                             <input
                                 type="text"
                                 id="variant"
                                 className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200"
-                                placeholder="e.g., M5 CS"
-                            />
+                                />
                         </div>
                         <div className="flex flex-col">
-                            <label htmlFor="color" className="text-gray-700 font-medium mb-2">Color</label>
+                            <label htmlFor="color" className="text-gray-700 font-medium mb-2">Date and Time</label>
                             <input
                                 type="text"
                                 id="color"
                                 className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200"
-                                placeholder="e.g., Racing Green"
-                            />
+                                />
                         </div>
                         <div className="flex flex-col">
-                            <label htmlFor="fuelType" className="text-gray-700 font-medium mb-2">Fuel Type</label>
+                            <label htmlFor="fuelType" className="text-gray-700 font-medium mb-2">Discribe the Situation</label>
                             <input
                                 type="text"
                                 id="fuelType"
                                 className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200"
-                                placeholder="e.g., Petrol"
+                                
                             />
                         </div>
                         <div className="flex flex-col">
-                            <label htmlFor="seatCapacity" className="text-gray-700 font-medium mb-2">Seat Capacity</label>
+                            <label htmlFor="seatCapacity" className="text-gray-700 font-medium mb-2">Attach the Evidence</label>
                             <input
                                 type="number"
                                 id="seatCapacity"
                                 className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200"
-                                placeholder="e.g., 5"
-                            />
+                                />
                         </div>
                         <div className="flex flex-col">
-                            <label htmlFor="yearOfManufacture" className="text-gray-700 font-medium mb-2">Year of Manufacture</label>
+                            <label htmlFor="yearOfManufacture" className="text-gray-700 font-medium mb-2">dd</label>
                             <input
                                 type="number"
                                 id="yearOfManufacture"
                                 className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-200"
                                 placeholder="e.g., 2023"
-                            />
+                                />
                         </div>
                         <div className="md:col-span-2 flex justify-end">
                             <button
@@ -557,13 +561,14 @@ function Userdashboard() {
                         </div>
                     </form>
                 </div>
+        
  
-                    )}
+        )}
                 </div>    
             </main>
         </div>
     </>
     );
-}
+}   
 
 export default Userdashboard;
