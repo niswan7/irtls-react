@@ -7,7 +7,7 @@ function Insurancedashboard() {
         <div className="min-h-screen bg-gray-100 font-sans">
             <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
                 <div className="w-full h-20 flex items-center justify-between px-4 md:px-10">
-                    <h1 className="text-white text-xl md:text-3xl font-bold">Welcome Admin</h1>
+                    <h1 className="text-white text-xl md:text-3xl font-bold">Welcome New India Insurance Company</h1>
                     <div>
                         <Link to ="/"
                             onClick={() => console.log("Logout clicked from Admin Dashboard")} // Placeholder for logout action
@@ -20,7 +20,7 @@ function Insurancedashboard() {
             </header>
 
             <main className="container mx-auto px-4 py-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-8 p-4 bg-white rounded-lg shadow-sm">Admin Panel</h1>
+                <h1 className="text-3xl font-bold text-gray-800 mb-8 p-4 bg-white rounded-lg shadow-sm">Insurance Panel</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-500">
