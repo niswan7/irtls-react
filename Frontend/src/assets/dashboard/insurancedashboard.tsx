@@ -1,13 +1,69 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Commented out direct import of Link
 import {
     Search,
     ClipboardList,
     PlusCircle,
     Repeat2,
-} from 'lucide-react';
+    Bell, // For alerts
+    Download, // For reports
+    CheckCircle, // For verification
+    Edit, // For edit/update
+    Upload, // For upload copy of insurance
+    FileText // For general document/record icon
+} from 'lucide-react'; // Importing icons from lucide-react
+
+interface CardProps {
+    title: string;
+    icon: React.ReactNode;
+    description: string;
+    points: string[];
+    buttonText: string;
+    color: string; // Tailwind color name like 'blue', 'green', etc.
+}
+
+const Card: React.FC<CardProps> = ({
+    title,
+    icon,
+    description,
+    points,
+    buttonText,
+    color,
+}) => {
+    return (
+        <div className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-${color}-500`}>
+            <div className={`bg-gradient-to-r from-${color}-600 to-${color}-700 p-4`}>
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                    {icon}
+                    {title}
+                </h3>
+            </div>
+            <div className="p-6">
+                <p className="text-gray-700 mb-4">{description}</p>
+                <ul className="space-y-2 text-gray-600 text-sm list-disc list-inside">
+                    {points.map((point, idx) => (
+                        <li key={idx}>{point}</li>
+                    ))}
+                </ul>
+            </div>
+            <div className="bg-gray-50 px-6 py-4">
+                <button className={`w-full bg-gradient-to-r from-${color}-500 to-${color}-600 hover:from-${color}-600 hover:to-${color}-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg`}>
+                    {buttonText}
+                </button>
+            </div>
+        </div>
+    );
+};
 
 const Insurancedashboard: React.FC = () => {
+    // Placeholder for Link component, assuming react-router-dom is used in the main app
+    // If react-router-dom is properly set up, you can remove this placeholder.
+    const Link = ({ to, onClick, className, children }: { to: string; onClick?: () => void; className?: string; children: React.ReactNode }) => (
+        <a href={to} onClick={onClick} className={className}>
+            {children}
+        </a>
+    );
+
     return (
         <div className="min-h-screen bg-gray-100 font-sans">
             <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg sticky top-0 z-50">
@@ -17,7 +73,7 @@ const Insurancedashboard: React.FC = () => {
                     </h1>
                     <Link
                         to="/"
-                        onClick={() => console.log("Logout clicked from Admin Dashboard")}
+                        onClick={() => console.log("Logout clicked from Insurance Dashboard")}
                         className="text-white bg-gradient-to-r from-yellow-500 to-yellow-600 px-4 py-2 md:px-5 md:py-2 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                         Logout
@@ -32,162 +88,120 @@ const Insurancedashboard: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-                    {/* 1. Search Vehicle Details */}
+                    {/* 1. View & Search Insurance Records */}
                     <Card
-                        title="Search Vehicle Details"
-                        icon={<Search className="w-5 h-5 mr-2" />}
-                        description="Search for detailed information about any vehicle using its registration number."
+                        title="View & Search Records"
+                        icon={<Search className="w-5 h-5 text-white" />}
+                        description="Access and search comprehensive insurance records by various criteria."
                         points={[
-                            "Access vehicle specifications.",
-                            "View ownership history.",
-                            "Check registration validity.",
+                            "Search by vehicle registration, company, owner, or policy number.",
+                            "Filter by expired, active, or upcoming expiry.",
+                            "Quickly locate specific policies.",
                         ]}
-                        buttonText="Go to Search"
+                        buttonText="Search Records"
                         color="blue"
                     />
 
-                    {/* 2. Upload / Update PUC Certificates */}
+                    {/* 2. Add New Insurance Record */}
                     <Card
-                        title="Upload / Update PUC Certificates"
-                        icon={<ClipboardList className="w-5 h-5 mr-2" />}
-                        description="Manage PUC Certificates."
+                        title="Add New Record"
+                        icon={<PlusCircle className="w-5 h-5 text-white" />}
+                        description="Register new insurance policies into the system."
                         points={[
-                            "View pending and disposed Certificates.",
-                            "Process challan payments.",
-                            "Generate reports.",
+                            "Input vehicle, owner, company, and policy details.",
+                            "Specify start and expiry dates.",
+                            "Option to upload policy document copy.",
                         ]}
-                        buttonText="Manage Challans"
-                        color="red"
-                    />
-
-                    {/* 3. Add New Vehicle */}
-                    <Card
-                        title="Add New Vehicle"
-                        icon={<PlusCircle className="w-5 h-5 mr-2" />}
-                        description="Register new vehicles into the system."
-                        points={[
-                            "Input new vehicle details.",
-                            "Assign registration numbers.",
-                            "Update database records.",
-                        ]}
-                        buttonText="Add Vehicle"
+                        buttonText="Add New Policy"
                         color="green"
                     />
 
-                    {/* 4. Vehicle Ownership Transfer */}
+                    {/* 3. Edit / Update Insurance */}
                     <Card
-                        title="Vehicle Ownership Transfer"
-                        icon={<Repeat2 className="w-5 h-5 mr-2" />}
-                        description="Facilitate the transfer of vehicle ownership."
+                        title="Edit / Update Insurance"
+                        icon={<Edit className="w-5 h-5 text-white" />}
+                        description="Modify existing insurance records for renewals or changes."
                         points={[
-                            "Initiate transfer requests.",
-                            "Verify ownership documents.",
-                            "Update ownership records.",
+                            "Update policy expiry dates.",
+                            "Change insurance company or policy number.",
+                            "Upload new policy documents.",
                         ]}
-                        buttonText="Transfer Ownership"
+                        buttonText="Edit Policy"
                         color="purple"
                     />
 
-                    {/* 5. Vehicle Analytics & Trends */}
+                    {/* 4. Insurance Expiry Alerts */}
                     <Card
-                        title="Vehicle Analytics & Trends"
-                        icon={<ClipboardList className="w-5 h-5 mr-2" />}
-                        description="Get insights on vehicle and document status across the system."
+                        title="Expiry Alerts"
+                        icon={<Bell className="w-5 h-5 text-white" />}
+                        description="Manage and send automated alerts for expiring insurance policies."
                         points={[
-                            "Monitor registration and insurance patterns.",
-                            "Track document expiry trends.",
-                            "Visualize usage via charts.",
+                            "View policies expiring within 30 days.",
+                            "Identify vehicles with expired insurance.",
+                            "Send email/SMS reminders to owners.",
                         ]}
-                        buttonText="View Analytics"
+                        buttonText="Manage Alerts"
                         color="yellow"
                     />
 
-                    {/* 6. Violation Management */}
+                    {/* 5. Download Reports */}
                     <Card
-                        title="Violation Management"
-                        icon={<ClipboardList className="w-5 h-5 mr-2" />}
-                        description="Oversee traffic violations and challan management."
+                        title="Download Reports"
+                        icon={<Download className="w-5 h-5 text-white" />}
+                        description="Generate and download detailed insurance status reports."
                         points={[
-                            "Track unpaid fines and eChallans.",
-                            "Flag repeat offenders.",
-                            "Generate violation reports.",
+                            "Export reports in PDF or Excel format.",
+                            "Filter reports by date, company, or expiry status.",
+                            "Comprehensive data for auditing and analysis.",
                         ]}
-                        buttonText="Manage Violations"
-                        color="rose"
-                    />
-
-                    {/* 7. PUC Reminder Management */}
-                    <Card
-                        title="PUC Reminder Management"
-                        icon={<ClipboardList className="w-5 h-5 mr-2" />}
-                        description="Set and monitor automated PUC expiry reminders."
-                        points={[
-                            "Customize reminder intervals.",
-                            "Send alerts via email/SMS.",
-                            "Track delivery status.",
-                        ]}
-                        buttonText="Manage Reminders"
+                        buttonText="Generate Reports"
                         color="cyan"
                     />
 
-                    {/* 8. Duplicate Vehicle Detection */}
+                    {/* 6. Verification Panel */}
                     <Card
-                        title="Duplicate Vehicle Detection"
-                        icon={<ClipboardList className="w-5 h-5 mr-2" />}
-                        description="Identify vehicles with conflicting or duplicate data."
+                        title="Verification Panel"
+                        icon={<CheckCircle className="w-5 h-5 text-white" />}
+                        description="Manually verify uploaded insurance policy documents."
                         points={[
-                            "Check for repeated RC numbers.",
-                            "Detect engine/chassis duplicates.",
-                            "Flag for manual review.",
+                            "Review user-submitted policy copies.",
+                            "Mark policies as 'Verified' or 'Rejected'.",
+                            "Add comments for rejected policies.",
                         ]}
-                        buttonText="Detect Duplicates"
+                        buttonText="Verify Documents"
+                        color="red"
+                    />
+
+                    {/* Optional Feature: Integration with third-party APIs */}
+                    <Card
+                        title="API Integration"
+                        icon={<FileText className="w-5 h-5 text-white" />}
+                        description="Integrate with external insurance company APIs for real-time data."
+                        points={[
+                            "Automatic fetching of policy data.",
+                            "Streamlined data synchronization.",
+                            "Reduced manual data entry.",
+                        ]}
+                        buttonText="Configure API"
+                        color="indigo"
+                    />
+
+                    {/* Optional Feature: Analytics */}
+                    <Card
+                        title="Insurance Analytics"
+                        icon={<ClipboardList className="w-5 h-5 text-white" />}
+                        description="Gain insights into insurance trends and company performance."
+                        points={[
+                            "Analyze most used insurance companies.",
+                            "Track average policy expiry periods.",
+                            "Visualize data with charts and graphs.",
+                        ]}
+                        buttonText="View Analytics"
                         color="orange"
                     />
 
                 </div>
             </main>
-        </div>
-    );
-};
-
-type CardProps = {
-    title: string;
-    icon: React.ReactNode;
-    description: string;
-    points: string[];
-    buttonText: string;
-    color: string; // tailwind base color name like "blue", "red"
-};
-
-const Card: React.FC<CardProps> = ({
-    title,
-    icon,
-    description,
-    points,
-    buttonText,
-    color,
-}) => {
-    return (
-        <div className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-${color}-500`}>
-            <div className={`bg-gradient-to-r from-${color}-600 to-${color}-700 p-4`}>
-                <h3 className="text-xl font-bold text-white flex items-center">
-                    {icon}
-                    {title}
-                </h3>
-            </div>
-            <div className="p-6">
-                <p className="text-gray-700 mb-4">{description}</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                    {points.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className="bg-gray-50 px-6 py-4">
-                <button className={`w-full bg-gradient-to-r from-${color}-500 to-${color}-600 hover:from-${color}-600 hover:to-${color}-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg`}>
-                    {buttonText}
-                </button>
-            </div>
         </div>
     );
 };
